@@ -1,11 +1,18 @@
-<!DOCTYPE html> 
-<html>
-    <body>
+{% extends "master.html" %}
 
-        <h1>{{ mymember.firstname }} {{ mymember.lastname }}</h1>
+{% block title %}
+Details about {{ mymember.firstname }} {{ mymember.lastname }}
+{% endblock %}
 
-        <p>Phone: {{ mymember.phone }}</p>
-        <p>Member since: {{ mymember.joined_date }}</p>
-        <p>Back to <a href="/members">Members</a></p>
-    </body>
-</html>
+{% block content %}
+{% include "mymenu.html" with me="TOBIAS" sponsor="abc" %}
+<h1>{{ mymember.firstname }} {{ mymember.lastname }} </h1>
+
+    <p>Phone {{ mymember.phone }}</p>
+    <p>Member since: {{ mymember.joined_date }}</p>
+
+    <p>Back to <a href="/members">Members</a></p>
+
+    {% include 'footer.html' %}
+
+    {% endblock %}
